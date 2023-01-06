@@ -8,7 +8,7 @@
       <%= link_to "Sign Out", session_path, data: { turbo_method: :delete }, class: "button edit" %>
       <%= link_to "Edit Account", edit_user_path(@user), class: "button edit" %>
       <%= link_to "Delete Account", user_path(@user), 
-        data: { turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"},
         class: "button delete" %>
     </div>
   <% end %>
