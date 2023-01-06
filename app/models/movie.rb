@@ -49,6 +49,10 @@ class Movie < ApplicationRecord
         slug
     end
 
+    def review_count
+        reviews.size
+    end
+
 
     private
 
