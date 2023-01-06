@@ -20,7 +20,6 @@ class Movie < ApplicationRecord
 
     # Scopes for custom queries on the home page
     scope :released, -> { where("released_on < ?", Time.now).order(released_on: :desc) }
-    # scope :highest_gross, -> { where("released_on < ?", Time.now).order(total_gross: :desc) }
     scope :highest_gross, -> { order(total_gross: :desc) }
     scope :upcoming, -> { where("released_on > ?", Time.now).order(released_on: :asc) }
     scope :recent, ->(max=5) { where("released_on < ?", Time.now).order(released_on: :desc).limit(max) }
