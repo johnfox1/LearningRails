@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  
+
   belongs_to :movie
   belongs_to :user
 
@@ -9,5 +9,6 @@ class Review < ApplicationRecord
 
   scope :most_recent_review, -> { order(created_at: :desc) }
   scope :past_n_days, ->(n=7) { where("created_at > ?", n.days.ago) }
+
 
 end

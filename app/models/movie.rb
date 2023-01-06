@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
 
     before_save :set_slug
-    
+
     has_many :reviews, dependent: :destroy
     has_many :favorites, dependent: :destroy
     has_many :fans, through: :favorites, source: :user
@@ -28,7 +28,6 @@ class Movie < ApplicationRecord
     scope :grossed_more_than, ->(amount) { where("total_gross > ?", amount).order(total_gross: :desc) }
 
 
-    # Determine is a movie should be considered a flop (e.g. low gross)
     def flop?
         if reviews.size > 50 && reviews.averages(:stars) > 4
             false
@@ -41,8 +40,6 @@ class Movie < ApplicationRecord
         end
     end
 
-    
-    # Calculating the average rating for a movie. Show zero if no reviews.
     def average_stars
         reviews.average(:stars) || 0.0
     end
@@ -58,5 +55,6 @@ class Movie < ApplicationRecord
     def set_slug
         self.slug = title.parameterize
     end
+
 
 end
