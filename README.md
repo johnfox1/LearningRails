@@ -26,3 +26,5 @@ Things you may want to cover:
 * Now learning how to use Git and GitHub
 * Making another change to ReadMe on Github
 * Now making a change locally
+* Now making another change, in a new branch
+
