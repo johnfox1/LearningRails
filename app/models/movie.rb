@@ -44,13 +44,8 @@ class Movie < ApplicationRecord
         reviews.average(:stars) || 0.0
     end
 
-
     def to_param
         slug
-    end
-
-    def review_count
-        reviews.size
     end
 
 
@@ -59,6 +54,5 @@ class Movie < ApplicationRecord
     def set_slug
         self.slug = title.parameterize
     end
-
 
 end
