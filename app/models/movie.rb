@@ -28,6 +28,11 @@ class Movie < ApplicationRecord
     scope :grossed_more_than, ->(amount) { where("total_gross > ?", amount).order(total_gross: :desc) }
 
 
+    def self.sort_by_most_reviews
+        left_joins(:reviews).group(:id).order('COUNT(reviews.id) DESC')
+    end
+
+
     def flop?
         if reviews.size > 50 && reviews.averages(:stars) > 4
             false

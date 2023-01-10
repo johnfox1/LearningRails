@@ -12,6 +12,8 @@ class MoviesController < ApplicationController
             @movies = Movie.recent
         when "hits"
             @movies = Movie.hits
+        when "most_reviews"
+            @movies = Movie.sort_by_most_reviews
         else
             @movies = Movie.highest_gross
         end
